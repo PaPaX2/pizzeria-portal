@@ -31,18 +31,18 @@
 
 # Widok kelnera
 
-- `/weiter`
+- `/waiter`
   - tabela
     - w wierszach stoliki
     - w kolumnach różne rodzaje informacji (status, czas od ostatniej aktywności)
     - w ostatniej kolumnie dostępne akcje dla danego stolika
-- `/weiter/order/new`
+- `/waiter/order/new`
   - numer stolika (edytowalny)
   - menu produktów
   - opcje wybranego produktu
   - zamówienie (zamówione produkty z opcjami i ceną)
   - kwotę zamówienia
-- `/weiter/order/:id`
+- `/waiter/order/:id`
   - jak powyższe
 # Widok kuchni
 
