@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './Weiter.module.scss';
 
 class OrderId extends React.Component {
@@ -7,10 +7,14 @@ class OrderId extends React.Component {
   render() {
     return (
       <div className={styles.component}>
-        <p>OrderId: {window.location.pathname.split('/:').pop()}</p>
+        <p>OrderId: {this.props.match.params.id.substring(1)}</p>
       </div>
     );
   }
 }
+
+OrderId.propTypes = {
+  match: PropTypes.object,
+};
 
 export default OrderId;
