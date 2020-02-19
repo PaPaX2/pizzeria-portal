@@ -7,23 +7,23 @@ import styles from './Weiter.module.scss';
 class Weiter extends React.Component {
 
   state = {
-    order: '123',
+    orderId: '123',
   };
 
-
-  render(order) {
+  render() {
     return (
       <div className={styles.component}>
         <h2>Weiter view</h2>
-        <Link to={`/weiter/neworder`} activeClassName='active'>new</Link>
-        <Link to={`/weiter/order`} currentOrder={order}>order: id</Link>
-        <p></p>
+        <ul>
+          <li><Link to={`/weiter/neworder`}>new</Link></li>
+          <li><Link to={`/weiter/order/:` + this.state.orderId}>Check order</Link></li>
+        </ul>
       </div>
     );
   }
 }
 Weiter.propTypes = {
-  order: PropTypes.string,
+  orderId: PropTypes.string,
 };
 
 export default Weiter;
