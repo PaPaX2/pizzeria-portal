@@ -7,7 +7,7 @@ class OrderId extends React.Component {
   render() {
     return (
       <div className={styles.component}>
-        <p>OrderId: {this.props.match.params.id.substring(1)}</p>
+        <p>OrderId: {this.props.match.params.id}</p>
       </div>
     );
   }

@@ -7,7 +7,7 @@ class BookingId extends React.Component {
   render() {
     return (
       <div className={styles.component}>
-        <p>Booking Table Id: {this.props.match.params.id.substring(1)}</p>
+        <p>Booking Table Id: {this.props.match.params.id}</p>
       </div>
     );
   }

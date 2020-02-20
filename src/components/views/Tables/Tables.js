@@ -16,9 +16,9 @@ class Tables extends React.Component {
       <div className={styles.component}>
         <h2>Tables view</h2>
         <ul>
-          <li><Link to={'/tables/booking/:' + this.state.tableId}>Manage Table Reservation</Link></li>
+          <li><Link to={'/tables/booking/' + this.state.tableId}>Manage Table Reservation</Link></li>
           <li><Link to={'/table/booking/new'}>New Table Reservation</Link></li>
-          <li><Link to={'/table/event/:' + this.state.eventId}>Manage Event Reservation</Link></li>
+          <li><Link to={'/table/event/' + this.state.eventId}>Manage Event Reservation</Link></li>
           <li><Link to={'/table/event/new'}>New Event Reservation</Link></li>
         </ul>
       </div>

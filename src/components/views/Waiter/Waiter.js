@@ -16,7 +16,7 @@ class Waiter extends React.Component {
         <h2>Waiter view</h2>
         <ul>
           <li><Link to={`/waiter/neworder`}>new</Link></li>
-          <li><Link to={`/waiter/order/:` + this.state.orderId}>Check order</Link></li>
+          <li><Link to={`/waiter/order/` + this.state.orderId}>Check order</Link></li>
         </ul>
       </div>
     );

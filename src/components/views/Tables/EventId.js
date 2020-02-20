@@ -7,7 +7,7 @@ class EventId extends React.Component {
   render() {
     return (
       <div className={styles.component}>
-        <p>Event Id: {this.props.match.params.id.substring(1)}</p>
+        <p>Event Id: {this.props.match.params.id}</p>
       </div>
     );
   }
