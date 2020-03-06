@@ -4,12 +4,10 @@ import styles from './Kitchen.module.scss';
 
 
 const demoContent = [
-  {id: '1', status: 'free', order: null},
-  {id: '2', status: 'thinking', order: null},
-  {id: '3', status: 'ordered', order: 123},
-  {id: '4', status: 'prepared', order: 234},
-  {id: '5', status: 'delivered', order: 345},
-  {id: '6', status: 'paid', order: 456},
+  {id: '1', time: '10:15:25', order: 123, table: 1, ordered: 'pizza, pasta, soup', status: 'done'},
+  {id: '2', time: '11:25:35', order: 234, table: 5, ordered: 'soup', status: 'in progress'},
+  {id: '3', time: '12:35:45', order: 345, table: 3, ordered: 'pasta,', status: 'in progress'},
+  {id: '4', time: '13:45:55', order: 456, table: 4, ordered: 'pizza, soup', status: 'in progress'},
 ];
 
 
