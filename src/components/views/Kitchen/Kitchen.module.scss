@@ -3,3 +3,16 @@
 .component {
   padding: $base-size;
 }
+
+.button {
+  background-color: #2B4C6F;
+  color: white;
+
+  &:hover {
+    color: #2B4C6F;
+  }
+}
+
+.switch {
+  color: #2B4C6F;
+}
