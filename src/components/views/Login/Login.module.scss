@@ -2,15 +2,13 @@
 
 .component {
   padding: $base-size;
-  display: flex;
-  justify-content: center;
 }
 
 .loginArea {
-  max-width: 275px;
   display: flex;
+  max-width: 275px;
   flex-direction: column;
-  justify-content: center;
+  margin: 0 auto;
 }
 
 .button {

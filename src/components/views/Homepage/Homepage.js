@@ -30,7 +30,9 @@ const formatedDate = (today.getDate() < 10 ? '0' : '') + today.getDate() + '.' +
 
 const Homepage = () => (
   <Container className={styles.component}>
-    <h2>Dashboard</h2>
+    <Paper>
+      <h2>Dashboard</h2>
+    </Paper>
     <Paper>
       <h4> Today Statistics </h4>
     </Paper>

@@ -8,20 +8,16 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
 
 const demoContent = [
   {id: '1', time: '10:15:25', order: 123, table: 1, ordered: 'pizza, pasta, soup', status: 'done'},
   {id: '2', time: '11:25:35', order: 234, table: 5, ordered: 'soup', status: 'in progress'},
   {id: '3', time: '12:35:45', order: 345, table: 3, ordered: 'pasta,', status: 'in progress'},
   {id: '4', time: '13:45:55', order: 456, table: 4, ordered: 'pizza, soup', status: 'in progress'},
-  {id: '4', time: '14:45:55', order: 456, table: '', ordered: 'pizza', status: 'in progress'},
+  {id: '4', time: '14:45:55', order: 457, table: '', ordered: 'pizza', status: 'in progress'},
 ];
 
 
@@ -40,7 +36,7 @@ const handleChange = name => event => {
 
   <Container className={styles.component}>
     <Paper>
-      <h4> Kitchen </h4>
+      <h2> Kitchen view </h2>
     </Paper>
     <Table>
       <TableHead>

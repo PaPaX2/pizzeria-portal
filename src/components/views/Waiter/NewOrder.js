@@ -26,7 +26,7 @@ class NewOrder extends React.Component {
     return (
       <Container>
         <Paper>
-          <h4>NewOrder</h4>
+          <h4>Waiter / NewOrder</h4>
         </Paper>
         <Card>
           <CardContent>

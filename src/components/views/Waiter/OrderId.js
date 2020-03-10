@@ -9,6 +9,7 @@ class OrderId extends React.Component {
     return (
       <Paper className={styles.component}>
         <div className={styles.component}>
+          <h4>Waiter / Order ID</h4>
           <p>OrderId: {this.props.match.params.id}</p>
         </div>
       </Paper>

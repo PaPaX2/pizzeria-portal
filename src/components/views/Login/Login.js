@@ -6,9 +6,13 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import {Link} from 'react-router-dom';
+import Paper from '@material-ui/core/Paper';
 
 const LoginPage = () => (
   <Container className={styles.component}>
+    <Paper>
+      <h2> Login </h2>
+    </Paper>
     <Card className={styles.loginArea} variant="outlined">
       <TextField
         id="login-input"
