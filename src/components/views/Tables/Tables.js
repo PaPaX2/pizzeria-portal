@@ -1,4 +1,5 @@
 
+import 'date-fns';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Tables.module.scss';
@@ -11,45 +12,134 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Table from '@material-ui/core/Table';
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
+import Button from '@material-ui/core/Button';
+
 
 const Tables = () => {
 
   let state = {
-    tableId: '123',
-    eventId: '567',
-    tablesNo: 5,
+    tablesNo: 3,
     openHour: '10:00',
     closeHour: '24:00',
   };
 
+  const demoReservations = [
+    {id: '1', time: '10:00', order: 123, table: 1},
+    {id: '2', time: '11:00', order: 234, table: 2},
+    {id: '3', time: '12:30', order: 345, table: 3},
+    {id: '4', time: '13:30', order: 456, table: 1},
+    {id: '5', time: '20:00', order: 457, table: 3},
+    {id: '6', time: '17:30', order: 4444, table: 'event'},
+    {id: '7', time: '22:00', order: 5555, table: 'event'},
+  ];
+
+  //Create Table Head cells
   const tables = [];
   for (let i=1; i <= state.tablesNo; i++ ){
     tables.push(
-      <TableRow  key={i}>
-        <TableCell>
-          Table no {i}
-        </TableCell>
-      </TableRow>
+      <TableCell key={i}>
+        TABLE-{i}
+      </TableCell>
     );
   }
+
+
+  //<Button className={styles.link} component={Link} exact to={`${process.env.PUBLIC_URL}/table/booking/new`}>New Booking</Button>
+  //<Button className={styles.link} component={Link} exact to={`${process.env.PUBLIC_URL}/table/event/new`}>New Event</Button>
+
+  //Functions for Date and Time
+
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
+
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
+
+  const addManageButton = (id) => {
+    return <Button className={styles.button} component={ Link } to={id}>Manage reservation</Button>;
+  };
 
   return (
     <Container className={styles.component}>
       <Paper>
         <h2>Tables view</h2>
       </Paper>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <Grid container alignItems="center" direction="column">
+          <KeyboardTimePicker
+            margin="normal"
+            id="time-picker"
+            ampm={false}
+            label="Reservation Time"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              'aria-label': 'change time',
+            }}
+          />
+          <KeyboardDatePicker
+            margin="normal"
+            id="date-picker-dialog"
+            label="Reservation Date"
+            format="dd/MM/yyyy"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              'aria-label': 'change date',
+            }}
+          />
+        </Grid>
+      </MuiPickersUtilsProvider>
+
+      <Grid container direction="column" alignItems="center">
+        <Button className={styles.button} component={ Link } to={`/table/booking/new`}>Book a table</Button>
+        <Button className={styles.button} component={ Link } to={`/table/event/new`}>Add new event</Button>
+
+      </Grid>
+
       <Table>
         <TableHead>
-          {tables}
+          <TableRow>
+            <TableCell>Hour/Table</TableCell>
+            {tables}
+            <TableCell>Events</TableCell>
+          </TableRow>
         </TableHead>
+        <TableBody>
+          {demoReservations.map(row =>
+            <TableRow key={row.time}>
+              <TableCell>{row.time}</TableCell>
+              <TableCell>{row.table === 1 ?
+                addManageButton(`tables/booking/`+ row.order) : null
+              }
+              </TableCell>
+              <TableCell>
+                {row.table === 2 ?
+                  addManageButton(`tables/booking/`+ row.order) : null
+                }
+              </TableCell>
+              <TableCell>
+                {row.table === 3 ?
+                  addManageButton(`/tables/booking/`+ row.order) : null
+                }
+              </TableCell>
+              <TableCell>
+                {row.table === 'event' ?
+                  addManageButton(`/table/event/`+ row.order) : null
+                }
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
       </Table>
 
-      <ul>
-        <li><Link to={'/tables/booking/' + state.tableId}>Manage Table Reservation</Link></li>
-        <li><Link to={'/table/booking/new'}>New Table Reservation</Link></li>
-        <li><Link to={'/table/event/' + state.eventId}>Manage Event Reservation</Link></li>
-        <li><Link to={'/table/event/new'}>New Event Reservation</Link></li>
-      </ul>
       <div className={styles.floorPlan}>
         <div className={`${styles.object} ${styles.entry}`}>entry</div>
         <div className={`${styles.object} ${styles.bar}`}>bar</div>

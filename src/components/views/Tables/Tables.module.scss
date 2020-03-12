@@ -5,6 +5,15 @@ $color-dark: #333;
 .component {
   padding: $base-size;
 }
+.button {
+  background-color: #2B4C6F;
+  color: white;
+  margin: 5px auto;
+
+  &:hover {
+    color: #2B4C6F;
+  }
+}
 
 .floorPlan {
   position: relative;
@@ -62,6 +71,7 @@ $color-dark: #333;
     transform-origin: 50% 50%;
     cursor: pointer;
   }
+
   .tableRound {
     border-radius: 50%;
   }
