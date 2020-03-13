@@ -11,15 +11,6 @@ import Select from '@material-ui/core/Select';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-const demoMenu = [
-  {id: '1', status: 'free', order: null},
-  {id: '2', status: 'thinking', order: null},
-  {id: '3', status: 'ordered', order: 123},
-  {id: '4', status: 'prepared', order: 234},
-  {id: '5', status: 'delivered', order: 345},
-  {id: '6', status: 'paid', order: 456},
-];
-
 class NewOrder extends React.Component {
 
   render() {
@@ -51,6 +42,10 @@ class NewOrder extends React.Component {
             </FormControl>
           </CardContent>
         </Card>
+        <Paper><h4>Menu</h4></Paper>
+        <Paper><h4>Menu Opions</h4></Paper>
+        <Paper><h4>Order Summary</h4></Paper>
+        <Paper><h4>Cash total</h4></Paper>
       </Container>
     );
   }

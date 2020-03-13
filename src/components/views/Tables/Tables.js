@@ -97,13 +97,10 @@ const Tables = () => {
           />
         </Grid>
       </MuiPickersUtilsProvider>
-
       <Grid container direction="column" alignItems="center">
         <Button className={styles.button} component={ Link } to={`/table/booking/new`}>Book a table</Button>
         <Button className={styles.button} component={ Link } to={`/table/event/new`}>Add new event</Button>
-
       </Grid>
-
       <Table>
         <TableHead>
           <TableRow>

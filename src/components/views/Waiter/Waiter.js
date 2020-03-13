@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Waiter.module.scss';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -19,12 +19,39 @@ const demoContent = [
   {id: '6', status: 'paid', order: 456},
 ];
 
-const renderActions = status => {
+const status = ['free', 'thinking', 'ordered', 'prepared', 'delivered', 'paid'];
+
+const changeStatus = param => {
+  for (let row of demoContent) {
+    if (param.value === row.status) {
+      let index = demoContent.indexOf(row);
+      console.log('index',  status.length, index, status, row.status, param.value);
+
+      if (index >= status.length -1){
+        index = 0;
+      }
+      else index = index + 1;
+
+      console.log('przekazywany status', status[index]);
+      return status[index];
+    }
+    //else return 'sorry, error';
+    //console.log('index', index);
+  }
+};
+
+
+//const [value, setValue] = useState(state);
+
+const RenderActions = status => {
+
+  const [value, setValue] = useState('free');
+
   switch (status) {
     case 'free':
       return (
         <>
-          <Button>thinking</Button>
+          <Button onClick={() => setValue(changeStatus({value})) }>{value}</Button>
           <Button component={ Link } to={`/waiter/neworder`}>new order</Button>
         </>
       );
@@ -85,7 +112,7 @@ const Waiter = () => (
                 )}
               </TableCell>
               <TableCell>
-                {renderActions(row.status)}
+                {RenderActions(row.status)}
               </TableCell>
             </TableRow>
           ))}
