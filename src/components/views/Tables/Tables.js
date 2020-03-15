@@ -6,7 +6,6 @@ import styles from './Tables.module.scss';
 import {Link} from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
-
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
@@ -49,10 +48,6 @@ const Tables = () => {
       </TableCell>
     );
   }
-
-
-  //<Button className={styles.link} component={Link} exact to={`${process.env.PUBLIC_URL}/table/booking/new`}>New Booking</Button>
-  //<Button className={styles.link} component={Link} exact to={`${process.env.PUBLIC_URL}/table/event/new`}>New Event</Button>
 
   //Functions for Date and Time
 
@@ -98,8 +93,8 @@ const Tables = () => {
         </Grid>
       </MuiPickersUtilsProvider>
       <Grid container direction="column" alignItems="center">
-        <Button className={styles.button} component={ Link } to={`/table/booking/new`}>Book a table</Button>
-        <Button className={styles.button} component={ Link } to={`/table/event/new`}>Add new event</Button>
+        <Button className={styles.button} component={ Link } to={`/tables/booking/new`}>Book a table</Button>
+        <Button className={styles.button} component={ Link } to={`/tables/event/new`}>Add new event</Button>
       </Grid>
       <Table>
         <TableHead>
@@ -129,7 +124,7 @@ const Tables = () => {
               </TableCell>
               <TableCell>
                 {row.table === 'event' ?
-                  addManageButton(`/table/event/`+ row.order) : null
+                  addManageButton(`/tables/event/`+ row.order) : null
                 }
               </TableCell>
             </TableRow>

@@ -80,7 +80,7 @@ const RenderActions = status => {
   }
 };
 
-const Waiter = () => (
+const WaiterOld = () => (
   <Container>
     <Paper>
       <h2>Waiter view</h2>
@@ -122,4 +122,4 @@ const Waiter = () => (
   </Container>
 );
 
-export default Waiter;
+export default WaiterOld;
