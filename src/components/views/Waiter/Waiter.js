@@ -14,6 +14,7 @@ class Waiter extends React.Component {
   static propTypes = {
     tables: PropTypes.object,
     fetchTables: PropTypes.func,
+    setStatus: PropTypes.func,
     loading: PropTypes.shape({
       active: PropTypes.bool,
       error: PropTypes.oneOfType(PropTypes.bool, PropTypes.string),
@@ -25,34 +26,39 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(status){
+  renderActions(id, status){
+
+    const {setStatus} = this.props;
     switch (status) {
       case 'free':
         return (
           <>
-            <Button>thinking</Button>
-            <Button>new order</Button>
+            <Button onClick={() => { setStatus({ id, status: 'thinking' }); }}>thinking</Button>
+            <Button component={ Link } to={`/waiter/neworder`} onClick={() => { setStatus({ id, status: 'new order' }); }}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button>new order</Button>
+          <>
+            <Button onClick={() => { setStatus({ id, status: 'ordered' }); }}>Ordered</Button>
+            <Button component={ Link } to={`/waiter/neworder`} onClick={() => { setStatus({ id, status: 'order' }); }}>new order</Button>
+          </>
         );
       case 'ordered':
         return (
-          <Button>prepared</Button>
+          <Button onClick={() => { setStatus({ id, status: 'delivered' }); }}>prepered</Button>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button onClick={() => { setStatus({ id, status: 'paid' }); }}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button onClick={() => { setStatus({ id, status: 'free' }); }}>paid</Button>
         );
       case 'paid':
         return (
-          <Button>free</Button>
+          <Button onClick={() => { setStatus({ id, status: 'free' }); }}>free</Button>
         );
       default:
         return null;
@@ -104,7 +110,7 @@ class Waiter extends React.Component {
                     )}
                   </TableCell>
                   <TableCell>
-                    {this.renderActions(row.status)}
+                    {this.renderActions(row.id, row.status)}
                   </TableCell>
                 </TableRow>
               ))}
