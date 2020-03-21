@@ -27,7 +27,7 @@ export const setStatusAPI = (payload) => {
     dispatch(setStatus(payload));
 
     Axios
-      .put(`${api.url}/api/${api.tables}`, payload)
+      .put(`${api.url}/api/${api.tables}/${payload.id}`, payload)
       .then(res => {
         dispatch(setStatus(res.data));
       })
