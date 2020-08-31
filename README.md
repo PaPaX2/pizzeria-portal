@@ -1,3 +1,6 @@
+# Description
+Administrative panel for restaurant team.
+
 # Development
 
 ## URLe dostępne dzięki `yarn start`
